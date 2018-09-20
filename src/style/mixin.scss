@@ -1,0 +1,32 @@
+@charset "utf-8";
+$base: 40px;
+@function pxToRem($px) {
+  @return $px / $base * 1rem;
+}
+
+@mixin box {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($flex: 1) {
+  -webkit-flex: $flex;
+  -webkit-box-flex: $flex;
+  flex: $flex;
+}
+
+@mixin borderRadius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin backImage($url) {
+  background-image: url($url + "@2x.png");
+  @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3) {
+    background-image: url($url + "@3x.png");
+  }
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
