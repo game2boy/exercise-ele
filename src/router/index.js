@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import index from '@/pages/index/index'
+// import index from '@/pages/index/index'
 import shopIndex from '@/pages/shop/index'
 import shopItem from '@/pages/shop/item'
 
@@ -10,7 +10,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      component: index
+      redirect: '/shop'
+      // component: index
     },
     {
       path: '/shop',

@@ -14,7 +14,8 @@ if (process.env.NODE_ENV === 'development') {
   imgBaseUrl = '/static/img/'
 } else if (process.env.NODE_ENV === 'production') {
   baseUrl = '//'
-  imgBaseUrl = '//'
+  // imgBaseUrl = '//'
+  imgBaseUrl = '/static/img/'
 }
 
 export {

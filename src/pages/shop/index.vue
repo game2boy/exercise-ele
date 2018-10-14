@@ -65,9 +65,9 @@
                       <del v-if="goodsItem.oldPrice">{{ goodsItem.oldPrice }}</del>
                     </div>
                     <div class="buttons">
-                      <a href="javascript:;" class="icon-remove_circle" role="button" v-if="cartItemNum[goodsItem.id]" @click="delCartItem(goodsItem.id)"></a>
+                      <a href="javascript:" class="icon-remove_circle" role="button" v-if="cartItemNum[goodsItem.id]" @click="delCartItem(goodsItem.id)"></a>
                       <span role="button" v-if="cartItemNum[goodsItem.id]">{{ cartItemNum[goodsItem.id] }}</span>
-                      <a href="javascript:;" class="icon-add_circle" role="button" @click="addCartItem(goodsItem)"></a>
+                      <a href="javascript:" class="icon-add_circle" role="button" @click="addCartItem(goodsItem)"></a>
                     </div>
                   </div>
                 </div>
@@ -78,16 +78,16 @@
             <div class="cart-view">
               <div class="title">
                 <span>购物车</span>
-                <a href="javascript:;" class="remove" @click="clearCart">清空</a>
+                <a href="javascript:" class="remove" @click="clearCart">清空</a>
               </div>
               <div class="list">
                 <div class="item" v-for="(item, index) in cartItemList" :key="index">
                   <div class="name ellipsis">{{ item.name }}</div>
                   <div class="price">{{ item.price }}</div>
                   <div class="buttons">
-                    <a href="javascript:;" class="icon-remove_circle" role="button" @click="delCartItem(item.id)"></a>
+                    <a href="javascript:" class="icon-remove_circle" role="button" @click="delCartItem(item.id)"></a>
                     <span role="button">{{ item.num }}</span>
-                    <a href="javascript:;" class="icon-add_circle" role="button" @click="addCartItem(item)"></a>
+                    <a href="javascript:" class="icon-add_circle" role="button" @click="addCartItem(item)"></a>
                   </div>
                 </div>
               </div>
@@ -104,7 +104,7 @@
                 <span class="delivery">另需配送费¥{{ shopDetailData.deliveryPrice }}元</span>
               </div>
             </div>
-            <a href="javascript:;" class="checkout" :class="{ on: balancePrice >= shopDetailData.minPrice }">
+            <a href="javascript:" class="checkout" :class="{ on: balancePrice >= shopDetailData.minPrice }">
               <span v-if="!balancePrice">¥{{ shopDetailData.minPrice }}起送</span>
               <span v-else-if="balancePrice < shopDetailData.minPrice">还差¥{{ shopDetailData.minPrice - balancePrice }}起送</span>
               <span role="button" v-else>去结算</span>
@@ -193,7 +193,7 @@
               </div>
               <div class="right">
                 <div :class="{ on: isFavorite }" @click="doFavorite(isFavorite)">
-                  <a href="javascript:;" class="icon-favorite"></a>
+                  <a href="javascript:" class="icon-favorite"></a>
                   <span>{{ isFavorite ? '已收藏' : '收藏'}}</span>
                 </div>
               </div>
@@ -253,7 +253,7 @@
         </div>
       </div>
       <div class="close" @click="hideActivity">
-        <a href="javascript:;" class="icon-close"></a>
+        <a href="javascript:" class="icon-close"></a>
       </div>
     </div>
   </div>
@@ -269,12 +269,12 @@ export default {
       shopId: null, // 商户Id
       showLoading: true, // 显示加载动画
       tabIndex: 0, // 切换tab
-      cartCategoryNum: {},
-      cartItemNum: {},
+      cartCategoryNum: [],
+      cartItemNum: [],
       cartItemList: [],
-      shopDetailData: {}, // 商户详情
+      shopDetailData: null, // 商户详情
       shopGoodsList: [],
-      shopReviewInfo: {},
+      shopReviewInfo: null,
       shopReviewList: [],
       categoryIndex: 0,
       isFavorite: false,
@@ -415,7 +415,7 @@ export default {
         this.showCart = false
       }
     },
-    switchCart () {
+    switchCart (event) {
       if (event.target.getAttribute('role') !== 'button' && this.cartItemList.length) {
         this.showCart = !this.showCart
       }
@@ -679,7 +679,7 @@ export default {
               background-color: #f01414;
               font-size: pxToRem(16px);
               font-weight: 700;
-              line-height: 2;
+              line-height: 1;
               text-align: center;
               color: #fff;
               box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.4);
