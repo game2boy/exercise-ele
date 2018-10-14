@@ -266,15 +266,15 @@ import {shopDetails, getGoodsList, getRatingList} from '@/service/getData'
 export default {
   data () {
     return {
-      shopId: null, // 商户Id
+      shopId: 123, // 商户Id
       showLoading: true, // 显示加载动画
       tabIndex: 0, // 切换tab
       cartCategoryNum: [],
       cartItemNum: [],
       cartItemList: [],
-      shopDetailData: null, // 商户详情
+      shopDetailData: {}, // 商户详情
       shopGoodsList: [],
-      shopReviewInfo: null,
+      shopReviewInfo: [],
       shopReviewList: [],
       categoryIndex: 0,
       isFavorite: false,
