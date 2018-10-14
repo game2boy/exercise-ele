@@ -11,11 +11,11 @@ let routerMode = 'hash'
 let imgBaseUrl = ''
 
 if (process.env.NODE_ENV === 'development') {
-  imgBaseUrl = '/static/img/'
+  imgBaseUrl = 'static/img/'
 } else if (process.env.NODE_ENV === 'production') {
   baseUrl = '//'
   // imgBaseUrl = '//'
-  imgBaseUrl = '/static/img/'
+  imgBaseUrl = 'static/img/'
 }
 
 export {

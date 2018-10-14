@@ -2,10 +2,10 @@
   <div class="container">
     <div :class="{ out: outContainer }">
       <header>
-        <div class="cover-img" :style="{ backgroundImage: 'url(' + imgBaseUrl + shopDetailData.cover + ')' }"></div>
+        <div class="cover-img" :style="{ backgroundImage: 'url(' + coverImage + ')' }"></div>
         <div class="shop-info">
           <div class="summary">
-            <div class="left"><img :src="imgBaseUrl + shopDetailData.cover"/></div>
+            <div class="left"><img :src="coverImage"/></div>
             <div class="right">
               <div class="title">
                 <span class="ico"></span>
@@ -302,6 +302,13 @@ export default {
     }
   },
   computed: {
+    coverImage () {
+      let cover = ''
+      if (this.shopDetailData.cover) {
+        cover = this.imgBaseUrl + this.shopDetailData.cover
+      }
+      return cover
+    },
     balancePrice () {
       let total = 0
       this.cartItemList.forEach(val => {
